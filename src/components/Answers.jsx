@@ -10,8 +10,7 @@ const Answers = ({ answers, selectedAnswer, answerState, onSelect }) => {
     return (
         <ul id="answers">
             {shuffledAnswers.current.map((answer) => {
-                const isSelected =
-                selectedAnswer === answer;
+                const isSelected = selectedAnswer === answer;
                 let cssClasses = "";
                 if (answerState === "answered" && isSelected) {
                     cssClasses = "selected";
@@ -28,6 +27,7 @@ const Answers = ({ answers, selectedAnswer, answerState, onSelect }) => {
                         <button
                             onClick={() => onSelect(answer)}
                             className={cssClasses}
+                            disabled={answerState !== ""}
                         >
                             {answer}
                         </button>
